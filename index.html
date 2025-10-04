@@ -3,27 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Najbliższy zjazd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f4f4f4;
-      color: #333;
-      text-align: center;
-    }
-    .card {
-      display: inline-block;
-      background: white;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .highlight {
-      font-size: 1.5em;
-      color: #4CAF50;
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #222; }
+    .card { margin: 28px auto 20px auto; background: #fff; padding: 22px 10px 12px 10px; border-radius: 13px; box-shadow: 0 2px 16px rgba(0,0,0,0.10); width: min(99vw, 440px); text-align: center; }
+    h1 { margin-bottom: 13px; }
+    h2 { font-size:1.2em; margin: 0 0 5px 0; }
+    .highlight { font-size: 1.3em; color: #4CAF50; font-weight: 600; }
+    .day-card { margin: 22px auto 20px auto; background: #fff; border-radius: 13px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); max-width: 99vw; text-align: left; padding: 10px 7px 7px 7px; }
+    .day-header { font-size: 1.06em; font-weight: bold; background: #4caf50; color: #fff; border-radius: 10px 10px 7px 7px; margin: -10px -7px 8px -7px; padding: 8px 0 8px 12px; }
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.99em; background: #fafafa; }
+    .schedule-table thead { background: #e9e9e9; color: #444; }
+    .schedule-table th, .schedule-table td { padding: 6px 8px; text-align: left;}
+    .schedule-table tbody tr:nth-child(odd) { background: #f6fcf6; }
+    .no-classes { color: #aaa; font-style: italic; margin: 12px 0 11px 8px;}
+    @media (max-width: 650px) {
+      .card { width: 98vw; min-width: 1px; border-radius: 0 0 10px 10px; }
+      .day-card { width: 98vw; min-width: 1px;}
+      .day-header { font-size: 1em; }
     }
   </style>
 </head>
@@ -33,67 +30,129 @@
     <p id="next-date">Ładowanie...</p>
     <p id="countdown"></p>
   </div>
-
+  <section id="schedule" style="margin:0 auto;max-width:670px;"></section>
 <script>
-  // Funkcja do parsowania daty w formacie dd.mm.yyyy
-  function parseDate(str) {
+function parseDateFlexible(str) {
+  if (str.includes(".")) {
     const [d, m, y] = str.split(".");
-    return new Date(Number(y), Number(m) - 1, Number(d));
+    return new Date(Number(y), Number(m)-1, Number(d));
+  } else if (str.includes("-")) {
+    const [y, m, d] = str.split("-");
+    return new Date(Number(y), Number(m)-1, Number(d));
   }
+}
+function capitalize(str) { return str[0].toUpperCase() + str.slice(1); }
 
-  async function findNextWeekend() {
-    const response = await fetch("data.csv");
-    const csv = await response.text();
+async function main() {
+  // 1. Odczytaj zjazdy z data.csv
+  const respWeekends = await fetch("data.csv");
+  const weekends = (await respWeekends.text())
+    .trim().split("\n").filter(s=>s).map(row => row.split(","))
+    .map(([start, end]) => [parseDateFlexible(start), parseDateFlexible(end)]);
+  // 2. Dziś Polska strefa
+//   const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Warsaw" }));
+  const today = new Date(2025, 10, 6); // 2025, miesiąc=9 (październik, bo liczone od zera), dzień=4
 
-    const rows = csv.trim().split("\n").map(r => r.split(","));
-    
-    // 🕒 DZISIAJ w polskiej strefie czasowej
-    const today = new Date(
-      new Date().toLocaleString("en-US", { timeZone: "Europe/Warsaw" })
-    );
-    today.setHours(0, 0, 0, 0);
+  today.setHours(0,0,0,0);
 
-    let next = null;
-
-    for (const [start, end] of rows) {
-      const startDate = parseDate(start);
-      const endDate = parseDate(end);
-
-      // 🟢 jeśli dziś jest w trakcie zjazdu → pokazujemy ten zjazd
-      if (today >= startDate && today <= endDate) {
-        next = { startDate, endDate, ongoing: true };
-        break;
-      }
-
-      // 🟢 jeśli dziś przed startem → to jest najbliższy zjazd
-      if (startDate > today) {
-        next = { startDate, endDate, ongoing: false };
-        break;
-      }
-    }
-
-    if (next) {
-      if (next.ongoing) {
-        document.getElementById("next-date").innerHTML =
-          `📅 ${next.startDate.toLocaleDateString("pl-PL")} - ${next.endDate.toLocaleDateString("pl-PL")}`;
-        document.getElementById("countdown").innerHTML =
-          `✅ Zjazd trwa <span class="highlight">TERAZ!</span>`;
-      } else {
-        const diffTime = next.startDate - today;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        document.getElementById("next-date").innerHTML =
-          `📅 ${next.startDate.toLocaleDateString("pl-PL")} - ${next.endDate.toLocaleDateString("pl-PL")}`;
-        document.getElementById("countdown").innerHTML =
-          `⏳ Do zjazdu zostało <span class="highlight">${diffDays}</span> dni`;
-      }
+  let next = null;
+  for (const [startD, endD] of weekends) {
+    if (today >= startD && today <= endD)
+      { next = {startD, endD, ongoing:true}; break; }
+    if (startD > today)
+      { next = {startD, endD, ongoing:false}; break;}
+  }
+  if (next) {
+    if (next.ongoing) {
+      document.getElementById("next-date").innerHTML = `📅 <b>${next.startD.toLocaleDateString("pl-PL")}</b> - <b>${next.endD.toLocaleDateString("pl-PL")}</b>`;
+      document.getElementById("countdown").innerHTML = `✅ Zjazd trwa <span class="highlight">TERAZ!</span>`;
     } else {
-      document.getElementById("next-date").textContent = "Brak kolejnych zjazdów.";
+      const diff = (next.startD-today)/(1000*60*60*24);
+      document.getElementById("next-date").innerHTML = `📅 <b>${next.startD.toLocaleDateString("pl-PL")}</b> - <b>${next.endD.toLocaleDateString("pl-PL")}</b>`;
+      document.getElementById("countdown").innerHTML = `⏳ Do zjazdu zostało <span class="highlight">${Math.ceil(diff)}</span> dni`;
     }
+  } else {
+    document.getElementById("next-date").innerHTML = "Brak kolejnych zjazdów.";
+    document.getElementById("schedule").innerHTML = "";
+    return;
   }
 
-  findNextWeekend();
+  // 3. Wczytaj tylko zajęcia, które są w tym zjeździe
+  const respPlan = await fetch("plan.csv");
+  const planRows = (await respPlan.text()).trim().split("\n").filter(s=>s);
+  const header = planRows[0].split(",");
+
+  // daty w zjeździe
+  let iter = new Date(next.startD), daty = [];
+  while (iter <= next.endD) {
+    daty.push(new Date(iter));
+    iter.setDate(iter.getDate()+1);
+  }
+  const datyPL = daty.map(d=>d.toLocaleDateString("pl-PL"));
+  // wyciągamy zajęcia TYLKO z tymi datami
+  let zajeciaWgDnia = {};
+  for (const dstr of datyPL) zajeciaWgDnia[dstr] = [];
+  for(let i=1;i<planRows.length;++i){
+    const row = planRows[i].split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+    const rowDate = row[0].trim();
+    for (const d of daty) {
+      if (rowDate === d.toLocaleDateString("pl-PL") || parseDateFlexible(rowDate).getTime() === d.getTime()) {
+        zajeciaWgDnia[d.toLocaleDateString("pl-PL")].push({
+          dzien: row[1],
+          data: d,
+          godzOd: row[2],
+          godzDo: row[3],
+          przedmiot: row[4],
+          typ: row[5],
+          prowadzacy: row[6],
+          sala: row[7]
+        });
+      }
+    }
+  }
+  // render
+  let html = "";
+  daty.forEach(dateObj=>{
+    let dayStr = dateObj.toLocaleDateString("pl-PL");
+    let weekday = capitalize(dateObj.toLocaleDateString("pl-PL", { weekday: "long" }));
+    html += `<div class="day-card"><div class="day-header">
+      ${weekday} (${dateObj.toLocaleDateString("pl-PL")})</div>
+      ${
+        zajeciaWgDnia[dayStr].length === 0
+        ? `<div class="no-classes">Brak zajęć tego dnia.</div>`
+        : (
+          `<table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Godz.</th>
+                <th>Przedmiot</th>
+                <th>Typ</th>
+                <th>Prowadzący</th>
+                <th>Sala</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${
+                zajeciaWgDnia[dayStr].sort((a,b)=>
+                  a.godzOd.localeCompare(b.godzOd)||a.przedmiot.localeCompare(b.przedmiot)).map(x=>`
+                <tr>
+                  <td>${x.godzOd}–${x.godzDo}</td>
+                  <td>${x.przedmiot}</td>
+                  <td>${x.typ}</td>
+                  <td>${x.prowadzacy}</td>
+                  <td>${x.sala||"-"}</td>
+                </tr>
+                `).join('')
+              }
+            </tbody>
+          </table>`
+        )
+      }
+    </div>`;
+  });
+  document.getElementById("schedule").innerHTML = html;
+}
+main();
 </script>
-
-
 </body>
 </html>
