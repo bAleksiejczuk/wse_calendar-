@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Najbliższy zjazd</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+    .card {
+      display: inline-block;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .highlight {
+      font-size: 1.5em;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Najbliższy zjazd</h1>
+    <p id="next-date">Ładowanie...</p>
+    <p id="countdown"></p>
+  </div>
+
+  <script>
+    // Funkcja do parsowania daty w formacie dd.mm.yyyy
+    function parseDate(str) {
+      const [d, m, y] = str.split(".");
+      return new Date(Number(y), Number(m) - 1, Number(d));
+    }
+
+    async function findNextWeekend() {
+      const response = await fetch("data.csv");
+      const csv = await response.text();
+
+      const rows = csv.trim().split("\n").map(r => r.split(","));
+    //   const today = new Date();
+      const today = new Date(2025, 10, 10); // <- TEST: 5 października 2025
+      today.setHours(0,0,0,0);
+
+      let next = null;
+
+      for (const [start, end] of rows) {
+        const startDate = parseDate(start);
+        const endDate = parseDate(end);
+
+        // 🟢 jeśli dziś jest w trakcie zjazdu → pokazujemy ten zjazd
+        if (today >= startDate && today <= endDate) {
+          next = { startDate, endDate, ongoing: true };
+          break;
+        }
+
+        // 🟢 jeśli dziś przed startem → to jest najbliższy zjazd
+        if (startDate > today) {
+          next = { startDate, endDate, ongoing: false };
+          break;
+        }
+      }
+
+      if (next) {
+        if (next.ongoing) {
+          document.getElementById("next-date").innerHTML =
+            `📅 ${next.startDate.toLocaleDateString("pl-PL")} - ${next.endDate.toLocaleDateString("pl-PL")}`;
+          document.getElementById("countdown").innerHTML =
+            `✅ Zjazd trwa <span class="highlight">TERAZ!</span>`;
+        } else {
+          const diffTime = next.startDate - today;
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          document.getElementById("next-date").innerHTML =
+            `📅 ${next.startDate.toLocaleDateString("pl-PL")} - ${next.endDate.toLocaleDateString("pl-PL")}`;
+          document.getElementById("countdown").innerHTML =
+            `⏳ Do zjazdu zostało <span class="highlight">${diffDays}</span> dni`;
+        }
+      } else {
+        document.getElementById("next-date").textContent = "Brak kolejnych zjazdów.";
+      }
+    }
+
+    findNextWeekend();
+  </script>
+</body>
+</html>
