@@ -1,71 +1,89 @@
 Data,Dzień tygodnia,Godzina od,Godzina do,Przedmiot,Typ zajęć,Prowadzący,Sala
 04.10.2025,Sobota,08:00,11:15,Programowanie w języku C#,laboratorium,mgr inż. Mirosław Najbuk,312
-04.10.2025,Sobota,11:30,14:45,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,312
+04.10.2025,Sobota,11:30,14:45,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,312
 04.10.2025,Sobota,15:00,16:30,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,312
 05.10.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 05.10.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 05.10.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 05.10.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 05.10.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-05.10.2025,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,312
-17.10.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,TEAMS
+05.10.2025,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,312
+17.10.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,TEAMS
 18.10.2025,Sobota,08:00,11:15,Programowanie w języku C#,laboratorium,mgr inż. Mirosław Najbuk,312
-18.10.2025,Sobota,12:00,15:00,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,TEAMS
+18.10.2025,Sobota,12:00,15:00,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,TEAMS
 18.10.2025,Sobota,15:15,16:45,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,TEAMS
 19.10.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 19.10.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 19.10.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 19.10.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 19.10.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-19.10.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,
-07.11.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,TEAMS
+19.10.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,312
+07.11.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,TEAMS
 08.11.2025,Sobota,08:00,11:15,Programowanie w języku C#,laboratorium,mgr inż. Mirosław Najbuk,312
-08.11.2025,Sobota,12:00,15:00,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,TEAMS
+08.11.2025,Sobota,12:00,15:00,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,TEAMS
 08.11.2025,Sobota,15:15,16:45,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,TEAMS
 09.11.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 09.11.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 09.11.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 09.11.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 09.11.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-09.11.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,
-21.11.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,TEAMS
+09.11.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,312
+21.11.2025,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,TEAMS
 22.11.2025,Sobota,08:00,11:15,Zaawansowane programowanie w języku Python,wykład konwersatoryjny,dr Aneta Polewko – Klim,312
-22.11.2025,Sobota,11:30,14:45,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,312
+22.11.2025,Sobota,11:30,14:45,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,312
 22.11.2025,Sobota,15:00,16:30,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,312
 23.11.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 23.11.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 23.11.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 23.11.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 23.11.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-23.11.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,
-05.12.2025,Piątek,17:00,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,TEAMS
+23.11.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,312
+05.12.2025,Piątek,17:00,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,TEAMS
 06.12.2025,Sobota,08:00,11:15,Zaawansowane programowanie w języku Python,wykład konwersatoryjny,dr Aneta Polewko – Klim,312
-06.12.2025,Sobota,11:30,14:45,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,312
+06.12.2025,Sobota,11:30,14:45,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,312
 06.12.2025,Sobota,15:00,16:30,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,312
 07.12.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 07.12.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 07.12.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 07.12.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 07.12.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-07.12.2025,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,312
-19.12.2025,Piątek,17:00,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,TEAMS
+07.12.2025,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,312
+19.12.2025,Piątek,17:00,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,TEAMS
 20.12.2025,Sobota,08:00,11:15,Zaawansowane programowanie w języku Python,wykład konwersatoryjny,dr Aneta Polewko – Klim,312
-20.12.2025,Sobota,12:00,15:00,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,TEAMS
+20.12.2025,Sobota,12:00,15:00,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,TEAMS
 20.12.2025,Sobota,15:15,16:45,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,TEAMS
 21.12.2025,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 21.12.2025,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 21.12.2025,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 21.12.2025,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 21.12.2025,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-21.12.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,wykład, laboratorium,mgr inż. Mirosław Najbuk,
-16.01.2026,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,TEAMS
+21.12.2025,Niedziela,16:45,20:00,Bezpieczeństwo systemów informatycznych,"wykład, laboratorium",mgr inż. Mirosław Najbuk,312
+16.01.2026,Piątek,17:00,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,TEAMS
 17.01.2026,Sobota,08:00,09:30,Zaawansowane programowanie w języku Python,wykład konwersatoryjny,dr Aneta Polewko – Klim,312
 17.01.2026,Sobota,09:45,11:15,Programowanie w języku C#,laboratorium,mgr inż. Mirosław Najbuk,312
-17.01.2026,Sobota,11:30,14:45,Testowanie aplikacji,wykład, laboratorium,mgr inż. Fridgles-Glodi,312
+17.01.2026,Sobota,11:30,14:45,Testowanie aplikacji,"wykład, laboratorium",mgr inż. Fridgles-Glodi,312
 17.01.2026,Sobota,15:00,16:30,Automatyzacja,wykład konwersatoryjny,mgr inż. Fridgles-Glodi,312
 18.01.2026,Niedziela,08:00,09:30,Programowanie JavaScript,wykład konwersatoryjny,mgr Przemysław Sienkiewicz,302
 18.01.2026,Niedziela,09:45,11:15,Wprowadzenie do programowania na platformie. NET Framework,laboratorium,mgr Przemysław Sienkiewicz,302
 18.01.2026,Niedziela,11:30,13:00,Wprowadzenie do programowania na platformie. NET Framework,wykład,mgr Przemysław Sienkiewicz,309
 18.01.2026,Niedziela,13:15,14:45,Technologie internetowe,wykład,mgr Przemysław Sienkiewicz,309
 18.01.2026,Niedziela,15:00,16:30,Technologie internetowe,laboratorium,mgr Przemysław Sienkiewicz,312
-18.01.2026,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,wykład, laboratorium,lic. Michał Korwel,312
+18.01.2026,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,312
+31.01.2026,Sobota,?,?,8 Zjazd zajęcia odrabiające,?,?,?
+01.02.2026,Niedziela,?,?,8 Zjazd zajęcia odrabiające,?,?,?
+21.02.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+22.02.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+07.03.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+08.03.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+21.03.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+22.03.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+18.04.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+19.04.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+09.05.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+10.05.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+23.05.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+24.05.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+13.06.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
+14.06.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+27.06.2026,Sobota,?,?,8 Zjazd zajęcia odrabiające,?,?,?
+28.06.2026,Niedziela,?,?,8 Zjazd zajęcia odrabiające,?,?,?
