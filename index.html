@@ -10,17 +10,153 @@
     h1 { margin-bottom: 13px; }
     h2 { font-size:1.2em; margin: 0 0 5px 0; }
     .highlight { font-size: 1.3em; color: #4CAF50; font-weight: 600; }
-    .day-card { margin: 22px auto 20px auto; background: #fff; border-radius: 13px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); max-width: 99vw; text-align: left; padding: 10px 7px 7px 7px; }
+    .day-card { margin: 22px auto 20px auto; background: #fff; border-radius: 13px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); max-width: 99vw; text-align: left; padding: 10px 7px 7px 7px; overflow: hidden; }
     .day-header { font-size: 1.06em; font-weight: bold; background: #4caf50; color: #fff; border-radius: 10px 10px 7px 7px; margin: -10px -7px 8px -7px; padding: 8px 0 8px 12px; }
-    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.99em; background: #fafafa; }
+    .schedule-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.99em; background: #fafafa; table-layout: fixed; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
     .schedule-table thead { background: #e9e9e9; color: #444; }
-    .schedule-table th, .schedule-table td { padding: 6px 8px; text-align: left;}
+    .schedule-table th { padding: 10px 8px; text-align: left; word-wrap: break-word; font-weight: 600; border-bottom: 2px solid #4caf50; }
+    .schedule-table td { padding: 8px 8px; text-align: left; word-wrap: break-word; border-bottom: 1px solid #000000; }
+    .schedule-table th:nth-child(1), .schedule-table td:nth-child(1) { width: 90px; white-space: nowrap; }
+    .schedule-table tbody tr { transition: background-color 0.2s ease; }
     .schedule-table tbody tr:nth-child(odd) { background: #f6fcf6; }
+    .schedule-table tbody tr:nth-child(even) { background: #fff; }
+    .schedule-table tbody tr:hover { background: #e8f5e9; }
+    .schedule-table tbody tr:last-child td { border-bottom: none; }
+    
+    .schedule-table th:not(:last-child), 
+    .schedule-table td:not(:last-child) { border-right: 1px solid #000000; }
+    
     .no-classes { color: #aaa; font-style: italic; margin: 12px 0 11px 8px;}
+    
+    /* Kalendarz - Modal */
+    .calendar-modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0,0,0,0.5); 
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .calendar-modal.show { display: block; }
+    .calendar-container { 
+      margin: 40px auto; 
+      background: #fff; 
+      border-radius: 13px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+      width: calc(100% - 20px);
+      max-width: 600px; 
+      padding: 20px; 
+      position: relative; 
+      box-sizing: border-box;
+    }
+    .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-right: 35px; }
+    .calendar-header h2 { margin: 0; font-size: 1.4em; color: #4CAF50; }
+    .calendar-nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .calendar-nav button { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.95em; font-weight: 600; transition: background 0.2s; }
+    .calendar-nav button:hover { background: #45a049; }
+    .close-calendar { position: absolute; top: 15px; right: 15px; font-size: 28px; font-weight: bold; color: #999; cursor: pointer; line-height: 20px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+    .close-calendar:hover { color: #333; }
+    
+    .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 15px; }
+    .calendar-day-header { text-align: center; font-weight: bold; padding: 10px 5px; background: #e9e9e9; border-radius: 6px; font-size: 0.9em; color: #444; }
+    .calendar-day { text-align: center; padding: 12px 5px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; background: #fafafa; min-height: 40px; display: flex; align-items: center; justify-content: center; font-size: 0.95em; }
+    .calendar-day:hover { background: #e8f5e9; border-color: #4CAF50; }
+    .calendar-day.empty { background: transparent; border: none; cursor: default; }
+    .calendar-day.zjazd { background: #c8e6c9; border-color: #4CAF50; font-weight: bold; }
+    .calendar-day.zjazd:hover { background: #a5d6a7; }
+    .calendar-day.today { border: 2px solid #FF9800; font-weight: bold; }
+    
+    .btn-calendar { background: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 1em; font-weight: 600; margin-top: 10px; transition: background 0.2s; }
+    .btn-calendar:hover { background: #45a049; }
+    
+    /* Modal z zajęciami dla wybranego dnia */
+    .day-detail-modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 1001; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0,0,0,0.5); 
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .day-detail-modal.show { display: block; }
+    .day-detail-container { 
+      margin: 40px auto; 
+      background: #fff; 
+      border-radius: 13px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+      width: calc(100% - 20px);
+      max-width: 600px; 
+      padding: 20px; 
+      position: relative; 
+      box-sizing: border-box;
+    }
+    .day-detail-header { background: #4caf50; color: #fff; border-radius: 10px; padding: 12px 40px 12px 12px; margin: -20px -20px 15px -20px; font-size: 1.2em; font-weight: bold; text-align: center; position: relative; }
+    .close-day-detail { position: absolute; top: 12px; right: 15px; font-size: 28px; font-weight: bold; color: white; cursor: pointer; line-height: 20px; z-index: 1; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+    .close-day-detail:hover { color: #f0f0f0; }
+    
     @media (max-width: 650px) {
-      .card { width: 98vw; min-width: 1px; border-radius: 0 0 10px 10px; }
-      .day-card { width: 98vw; min-width: 1px;}
-      .day-header { font-size: 1em; }
+      .card { width: 98vw; min-width: 1px; border-radius: 0 0 10px 10px; margin: 28px 0 20px 0; }
+      .day-card { width: calc(100vw - 20px); min-width: 1px; margin: 22px 10px 20px 10px; }
+      .day-header { font-size: 1em; padding: 8px 8px 8px 10px; }
+      .schedule-table { font-size: 0.85em; }
+      .schedule-table th, .schedule-table td { padding: 6px 4px; font-size: 0.9em; }
+      .schedule-table th:nth-child(1), .schedule-table td:nth-child(1) { width: 70px; font-size: 0.85em; }
+      
+      .calendar-container { margin: 15px auto; padding: 15px; width: calc(100% - 30px); }
+      .calendar-header { padding-right: 30px; }
+      .calendar-header h2 { font-size: 1.1em; }
+      .calendar-nav button { padding: 6px 10px; font-size: 0.8em; }
+      .calendar-grid { gap: 3px; }
+      .calendar-day-header { font-size: 0.75em; padding: 6px 2px; }
+      .calendar-day { padding: 8px 2px; font-size: 0.8em; min-height: 32px; }
+      .close-calendar { top: 10px; right: 10px; font-size: 24px; }
+      
+      .day-detail-container { margin: 15px auto; padding: 15px; width: calc(100% - 30px); }
+      .day-detail-header { font-size: 1em; padding: 10px 40px 10px 10px; margin: -15px -15px 15px -15px; }
+    }
+    
+    @media (max-width: 480px) {
+      .schedule-table { font-size: 0.8em; }
+      .schedule-table th, .schedule-table td { padding: 5px 3px; }
+      .schedule-table th:nth-child(1), .schedule-table td:nth-child(1) { width: 65px; font-size: 0.8em; }
+      .schedule-table th:nth-child(5), 
+      .schedule-table td:nth-child(5) { display: none; }
+      
+      .calendar-container { width: calc(100% - 20px); margin: 10px auto; padding: 12px; }
+      .calendar-header { flex-direction: column; gap: 8px; align-items: stretch; padding-right: 0; }
+      .calendar-header h2 { text-align: center; padding-right: 0; font-size: 1em; }
+      .calendar-nav { width: 100%; justify-content: space-between; }
+      .calendar-nav button { flex: 1; padding: 8px 8px; font-size: 0.75em; }
+      .close-calendar { top: 8px; right: 8px; font-size: 24px; }
+      .calendar-grid { gap: 2px; }
+      .calendar-day-header { font-size: 0.7em; padding: 5px 1px; }
+      .calendar-day { padding: 6px 1px; font-size: 0.75em; min-height: 28px; }
+      
+      .day-detail-container { width: calc(100% - 20px); margin: 10px auto; padding: 12px; }
+    }
+    
+    @media (max-width: 380px) {
+      .schedule-table { font-size: 0.75em; }
+      .schedule-table th:nth-child(1), .schedule-table td:nth-child(1) { width: 60px; font-size: 0.75em; }
+      .schedule-table th:nth-child(3), 
+      .schedule-table td:nth-child(3) { display: none; }
+      
+      .calendar-container { width: calc(100% - 16px); padding: 10px; margin: 8px auto; }
+      .calendar-header h2 { font-size: 0.95em; }
+      .calendar-nav button { font-size: 0.7em; padding: 6px 6px; }
+      .calendar-grid { gap: 2px; }
+      .calendar-day-header { font-size: 0.65em; padding: 4px 1px; }
+      .calendar-day { font-size: 0.7em; padding: 5px 1px; min-height: 26px; }
+      
+      .day-detail-container { width: calc(100% - 16px); padding: 10px; margin: 8px auto; }
     }
   </style>
 </head>
@@ -29,9 +165,67 @@
     <h1>Najbliższy zjazd</h1>
     <p id="next-date">Ładowanie...</p>
     <p id="countdown"></p>
+    <button class="btn-calendar" onclick="openCalendar()">📅 Kalendarz zjazdów</button>
+    <p><a href="https://wse.edu.pl" target="_blank" rel="noopener noreferrer">Strona WSE</a></p>
+    <p><a href="https://usosweb.wse.edu.pl/kontroler.php?_action=news/default" target="_blank" rel="noopener noreferrer">USOS</a></p>
+    <p><a href="https://moodle.wse.edu.pl" target="_blank" rel="noopener noreferrer">Moodle</a></p>
   </div>
+  
   <section id="schedule" style="margin:0 auto;max-width:670px;"></section>
+
+  <!-- Modal kalendarza -->
+  <div id="calendarModal" class="calendar-modal">
+    <div class="calendar-container">
+      <span class="close-calendar" onclick="closeCalendar()">&times;</span>
+      <div class="calendar-header">
+        <h2 id="calendarMonthYear">Styczeń 2025</h2>
+        <div class="calendar-nav">
+          <button onclick="changeMonth(-1)">◀ Poprzedni</button>
+          <button onclick="changeMonth(1)">Następny ▶</button>
+        </div>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+  </div>
+
+  <!-- Modal z zajęciami dla wybranego dnia -->
+  <div id="dayDetailModal" class="day-detail-modal">
+    <div class="day-detail-container">
+      <div class="day-detail-header">
+        <span class="close-day-detail" onclick="closeDayDetail()">&times;</span>
+        <span id="dayDetailTitle">Zajęcia</span>
+      </div>
+      <div id="dayDetailContent"></div>
+    </div>
+  </div>
+
 <script>
+let weekendsData = [];
+let planData = [];
+let currentCalendarMonth = new Date();
+let allScheduleByDay = {}; // Przechowuje wszystkie zajęcia według daty
+
+function parseCSVRow(row) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  
+  for (let i = 0; i < row.length; i++) {
+    const char = row[i];
+    
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === ',' && !inQuotes) {
+      result.push(current.trim());
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
 function parseDateFlexible(str) {
   if (str.includes(".")) {
     const [d, m, y] = str.split(".");
@@ -41,27 +235,62 @@ function parseDateFlexible(str) {
     return new Date(Number(y), Number(m)-1, Number(d));
   }
 }
+
 function capitalize(str) { return str[0].toUpperCase() + str.slice(1); }
 
-async function main() {
-  // 1. Odczytaj zjazdy z data.csv
+function dateToKey(date) {
+  return date.toLocaleDateString("pl-PL");
+}
+
+async function loadAllData() {
+  // Wczytaj zjazdy
   const respWeekends = await fetch("data.csv");
-  const weekends = (await respWeekends.text())
+  weekendsData = (await respWeekends.text())
     .trim().split("\n").filter(s=>s).map(row => row.split(","))
     .map(([start, end]) => [parseDateFlexible(start), parseDateFlexible(end)]);
-  // 2. Dziś Polska strefa
-//   const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Warsaw" }));
-  const today = new Date(2025, 10, 6); // 2025, miesiąc=9 (październik, bo liczone od zera), dzień=4
+  
+  // Wczytaj plan
+  const respPlan = await fetch("plan.csv");
+  const planRows = (await respPlan.text()).trim().split("\n").filter(s=>s);
+  const header = parseCSVRow(planRows[0]);
+  
+  // Przetwórz wszystkie zajęcia
+  for(let i=1; i<planRows.length; i++) {
+    const row = parseCSVRow(planRows[i]);
+    const rowDate = parseDateFlexible(row[0].trim());
+    const key = dateToKey(rowDate);
+    
+    if (!allScheduleByDay[key]) {
+      allScheduleByDay[key] = [];
+    }
+    
+    allScheduleByDay[key].push({
+      data: rowDate,
+      dzien: row[1],
+      godzOd: row[2],
+      godzDo: row[3],
+      przedmiot: row[4],
+      typ: row[5],
+      prowadzacy: row[6],
+      sala: row[7] || "-"
+    });
+  }
+}
 
+async function main() {
+  await loadAllData();
+  
+  const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Warsaw" }));
   today.setHours(0,0,0,0);
 
   let next = null;
-  for (const [startD, endD] of weekends) {
+  for (const [startD, endD] of weekendsData) {
     if (today >= startD && today <= endD)
       { next = {startD, endD, ongoing:true}; break; }
     if (startD > today)
       { next = {startD, endD, ongoing:false}; break;}
   }
+  
   if (next) {
     if (next.ongoing) {
       document.getElementById("next-date").innerHTML = `📅 <b>${next.startD.toLocaleDateString("pl-PL")}</b> - <b>${next.endD.toLocaleDateString("pl-PL")}</b>`;
@@ -77,81 +306,170 @@ async function main() {
     return;
   }
 
-  // 3. Wczytaj tylko zajęcia, które są w tym zjeździe
-  const respPlan = await fetch("plan.csv");
-  const planRows = (await respPlan.text()).trim().split("\n").filter(s=>s);
-  const header = planRows[0].split(",");
-
-  // daty w zjeździe
+  // Pokaż zajęcia dla najbliższego zjazdu
   let iter = new Date(next.startD), daty = [];
   while (iter <= next.endD) {
     daty.push(new Date(iter));
     iter.setDate(iter.getDate()+1);
   }
-  const datyPL = daty.map(d=>d.toLocaleDateString("pl-PL"));
-  // wyciągamy zajęcia TYLKO z tymi datami
+  
   let zajeciaWgDnia = {};
-  for (const dstr of datyPL) zajeciaWgDnia[dstr] = [];
-  for(let i=1;i<planRows.length;++i){
-    const row = planRows[i].split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
-    const rowDate = row[0].trim();
-    for (const d of daty) {
-      if (rowDate === d.toLocaleDateString("pl-PL") || parseDateFlexible(rowDate).getTime() === d.getTime()) {
-        zajeciaWgDnia[d.toLocaleDateString("pl-PL")].push({
-          dzien: row[1],
-          data: d,
-          godzOd: row[2],
-          godzDo: row[3],
-          przedmiot: row[4],
-          typ: row[5],
-          prowadzacy: row[6],
-          sala: row[7]
-        });
-      }
-    }
+  for (const d of daty) {
+    const key = dateToKey(d);
+    zajeciaWgDnia[key] = allScheduleByDay[key] || [];
   }
-  // render
+  
   let html = "";
   daty.forEach(dateObj=>{
-    let dayStr = dateObj.toLocaleDateString("pl-PL");
+    let dayStr = dateToKey(dateObj);
     let weekday = capitalize(dateObj.toLocaleDateString("pl-PL", { weekday: "long" }));
     html += `<div class="day-card"><div class="day-header">
       ${weekday} (${dateObj.toLocaleDateString("pl-PL")})</div>
       ${
         zajeciaWgDnia[dayStr].length === 0
         ? `<div class="no-classes">Brak zajęć tego dnia.</div>`
-        : (
-          `<table class="schedule-table">
-            <thead>
-              <tr>
-                <th>Godz.</th>
-                <th>Przedmiot</th>
-                <th>Typ</th>
-                <th>Prowadzący</th>
-                <th>Sala</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${
-                zajeciaWgDnia[dayStr].sort((a,b)=>
-                  a.godzOd.localeCompare(b.godzOd)||a.przedmiot.localeCompare(b.przedmiot)).map(x=>`
-                <tr>
-                  <td>${x.godzOd}–${x.godzDo}</td>
-                  <td>${x.przedmiot}</td>
-                  <td>${x.typ}</td>
-                  <td>${x.prowadzacy}</td>
-                  <td>${x.sala||"-"}</td>
-                </tr>
-                `).join('')
-              }
-            </tbody>
-          </table>`
-        )
+        : renderScheduleTable(zajeciaWgDnia[dayStr])
       }
     </div>`;
   });
   document.getElementById("schedule").innerHTML = html;
+  
+  // Ustaw kalendarz na miesiąc najbliższego zjazdu
+  currentCalendarMonth = new Date(next.startD.getFullYear(), next.startD.getMonth(), 1);
 }
+
+function renderScheduleTable(zajecia) {
+  return `<table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Godz.</th>
+        <th>Przedmiot</th>
+        <th>Typ</th>
+        <th>Prowadzący</th>
+        <th>Sala</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${
+        zajecia.sort((a,b)=>
+          a.godzOd.localeCompare(b.godzOd)||a.przedmiot.localeCompare(b.przedmiot)).map(x=>`
+        <tr>
+          <td style="white-space: nowrap;">${x.godzOd}–${x.godzDo}</td>
+          <td>${x.przedmiot}</td>
+          <td>${x.typ}</td>
+          <td>${x.prowadzacy}</td>
+          <td>${x.sala}</td>
+        </tr>
+        `).join('')
+      }
+    </tbody>
+  </table>`;
+}
+
+function openCalendar() {
+  renderCalendar();
+  document.getElementById("calendarModal").classList.add("show");
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCalendar() {
+  document.getElementById("calendarModal").classList.remove("show");
+  document.body.style.overflow = '';
+}
+
+function changeMonth(delta) {
+  currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() + delta);
+  renderCalendar();
+}
+
+function isDateInWeekends(date) {
+  for (const [start, end] of weekendsData) {
+    if (date >= start && date <= end) return true;
+  }
+  return false;
+}
+
+function renderCalendar() {
+  const year = currentCalendarMonth.getFullYear();
+  const month = currentCalendarMonth.getMonth();
+  
+  const monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+                      "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+  
+  document.getElementById("calendarMonthYear").textContent = `${monthNames[month]} ${year}`;
+  
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const startDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Poniedziałek = 0
+  
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  
+  let html = '';
+  const dayHeaders = ['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'Sb', 'Nd'];
+  dayHeaders.forEach(day => {
+    html += `<div class="calendar-day-header">${day}</div>`;
+  });
+  
+  // Puste komórki przed pierwszym dniem
+  for (let i = 0; i < startDay; i++) {
+    html += `<div class="calendar-day empty"></div>`;
+  }
+  
+  // Dni miesiąca
+  for (let day = 1; day <= lastDay.getDate(); day++) {
+    const date = new Date(year, month, day);
+    const isZjazd = isDateInWeekends(date);
+    const isToday = date.getTime() === today.getTime();
+    const key = dateToKey(date);
+    const hasClasses = allScheduleByDay[key] && allScheduleByDay[key].length > 0;
+    
+    let classes = 'calendar-day';
+    if (isZjazd) classes += ' zjazd';
+    if (isToday) classes += ' today';
+    
+    const onclick = hasClasses ? `onclick="showDayDetail('${key}')"` : '';
+    
+    html += `<div class="${classes}" ${onclick}>${day}</div>`;
+  }
+  
+  document.getElementById("calendarGrid").innerHTML = html;
+}
+
+function showDayDetail(dateKey) {
+  const zajecia = allScheduleByDay[dateKey];
+  
+  if (!zajecia || zajecia.length === 0) {
+    return;
+  }
+  
+  const date = zajecia[0].data;
+  const weekday = capitalize(date.toLocaleDateString("pl-PL", { weekday: "long" }));
+  
+  document.getElementById("dayDetailTitle").textContent = `${weekday}, ${dateKey}`;
+  document.getElementById("dayDetailContent").innerHTML = renderScheduleTable(zajecia);
+  document.getElementById("dayDetailModal").classList.add("show");
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDayDetail() {
+  document.getElementById("dayDetailModal").classList.remove("show");
+  document.body.style.overflow = '';
+}
+
+// Zamknij modala po kliknięciu poza nim
+window.onclick = function(event) {
+  const calModal = document.getElementById("calendarModal");
+  const dayModal = document.getElementById("dayDetailModal");
+  
+  if (event.target === calModal) {
+    closeCalendar();
+  }
+  if (event.target === dayModal) {
+    closeDayDetail();
+  }
+}
+
 main();
 </script>
 </body>
