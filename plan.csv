@@ -71,19 +71,89 @@ Data,Dzień tygodnia,Godzina od,Godzina do,Przedmiot,Typ zajęć,Prowadzący,Sal
 18.01.2026,Niedziela,16:45,20:00,Zarządzanie projektami informatycznymi,"wykład, laboratorium",lic. Michał Korwel,312
 31.01.2026,Sobota,?,?,8 Zjazd zajęcia odrabiające,?,?,?
 01.02.2026,Niedziela,?,?,8 Zjazd zajęcia odrabiające,?,?,?
-21.02.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-22.02.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-07.03.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-08.03.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-21.03.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-22.03.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-18.04.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-19.04.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-09.05.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-10.05.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-23.05.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-24.05.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
-13.06.2026,Sobota,?,?,Semestr letni - brak planu,?,?,?
-14.06.2026,Niedziela,?,?,Semestr letni - brak planu,?,?,?
+20.02.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+20.02.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+21.02.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+21.02.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+21.02.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+21.02.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+21.02.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,315
+21.02.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+22.02.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+22.02.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+22.02.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+22.02.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+06.03.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+06.03.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+07.03.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+07.03.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+07.03.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+07.03.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+07.03.2026,Sobota,17:00,18:30,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,TEAMS
+07.03.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+08.03.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+08.03.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+08.03.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+08.03.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+20.03.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+20.03.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+21.03.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+21.03.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+21.03.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+21.03.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+21.03.2026,Sobota,17:00,18:30,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,TEAMS
+21.03.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+22.03.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+22.03.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+22.03.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+22.03.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+17.04.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+17.04.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+18.04.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+18.04.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+18.04.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+18.04.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+18.04.2026,Sobota,17:00,18:30,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,TEAMS
+18.04.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+19.04.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+19.04.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+19.04.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+19.04.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+08.05.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+08.05.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+09.05.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+09.05.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+09.05.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+09.05.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+09.05.2026,Sobota,17:00,19:15,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,TEAMS
+09.05.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+10.05.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+10.05.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+10.05.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+10.05.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+22.05.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+22.05.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+23.05.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+23.05.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+23.05.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+23.05.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+23.05.2026,Sobota,17:00,19:15,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,TEAMS
+23.05.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+24.05.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+24.05.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+24.05.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+24.05.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
+12.06.2026,Piątek,16:45,18:15,Sztuczna inteligencja,wykład,dr Aneta Polewko-Klim,TEAMS
+12.06.2026,Piątek,18:30,20:00,Bazy danych,wykład,mgr inż. Mirosław Najbuk,TEAMS
+13.06.2026,Sobota,09:45,11:15,Sztuczna inteligencja,laboratorium,dr Aneta Polewko-Klim,312
+13.06.2026,Sobota,11:20,14:30,Zaawansowane programowanie w C#,"wykład, laboratorium",dr inż. Tomasz Grześ,312
+13.06.2026,Sobota,15:00,16:30,Metody numeryczne,"wykład, laboratorium",dr inż. Andrzej Kużelewski,302
+13.06.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Mirosław Najbuk,305
+13.06.2026,Sobota,16:40,18:10,Seminarium dyplomowe,seminarium,mgr inż. Frigyes Attila Glodi,315
+13.06.2026,Sobota,17:10,18:40,Seminarium dyplomowe,seminarium,dr inż. Tomasz Grześ,110
+14.06.2026,Niedziela,08:00,09:30,Aplikacje internetowe na platformie NET,laboratorium,mgr Przemysław Sienkiewicz,312
+14.06.2026,Niedziela,09:45,12:45,Frameworki C#,"wykład, laboratorium",mgr Przemysław Sienkiewicz,312
+14.06.2026,Niedziela,13:00,16:15,Technologie chmurowe i komunikacja rozproszona,"wykład, laboratorium",mgr inż. Mirosław Najbuk,305
+14.06.2026,Niedziela,16:30,18:45,Bazy danych,laboratorium,mgr inż. Mirosław Najbuk,305
 27.06.2026,Sobota,?,?,8 Zjazd zajęcia odrabiające,?,?,?
 28.06.2026,Niedziela,?,?,8 Zjazd zajęcia odrabiające,?,?,?
